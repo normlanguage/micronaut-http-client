@@ -1,0 +1,24 @@
+import micronaut.http.client.httpClientCreate
+import micronaut.http.client.BlockingHttpClient
+import micronaut.http.client.HttpClient
+import std.http.Uri
+
+main() {
+  HttpClient client = httpClientCreate(arg0: Uri(value: "http://127.0.0.1:18770"))!!
+  try {
+    BlockingHttpClient blocking = client.toBlocking()!!
+    String response = blocking.retrieve(arg0: "/greeting")!!
+    require(condition: response == "Hello from Micronaut",
+      message: "Unexpected local server response")
+    printLine(response)
+  } finally {
+    client.close()
+  }
+}
+
+Module module() {
+  module(dependencies: [
+    dependency(repository: "github", name: "micronaut.http.client", version: 3),
+    dependency(repository: "github", name: "micronaut.http.client.netty", version: 3)
+  ])
+}
