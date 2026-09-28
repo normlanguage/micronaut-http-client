@@ -19,6 +19,6 @@ main() {
 Module module() {
   module(dependencies: [
     dependency(repository: "github", name: "micronaut.http.client", version: 3),
-    dependency(repository: "github", name: "micronaut.http.client.netty", version: 3)
+    dependency(repository: "github", name: "micronaut.http.client.netty", version: 4)
   ])
 }
