@@ -1,7 +1,9 @@
 Module module() {
   return module(
     name: "micronaut.http.client",
-    version: 3,
+    version: 4,
+    exports: ["annotation.Client", "annotation.ClientDefinitionType", "HttpClient", "BlockingHttpClient"],
+    dependencies: [dependency(repository: "norm", name: "java.base", version: 1)],
     binding: jarBinding(
       target: mavenJar(
         group: "io.micronaut",
@@ -10,17 +12,17 @@ Module module() {
       ),
       api: [
         jarType(
-          name: "annotation.Client",
+          name: "io.micronaut.http.client.annotation.Client", alias: "annotation.Client",
           members: ["alpnModes", "definitionType", "id", "path", "value"]
         ),
-        jarType(name: "annotation.Client.DefinitionType", members: []),
+        jarType(name: "io.micronaut.http.client.annotation.Client.DefinitionType", alias: "annotation.ClientDefinitionType", members: []),
         jarType(
-          name: "HttpClient",
+          name: "io.micronaut.http.client.HttpClient", alias: "HttpClient",
           members: ["close", "toBlocking"],
           overloads: [jarOverload(name: "create", parameterTypes: ["java.net.URL"])]
         ),
         jarType(
-          name: "BlockingHttpClient",
+          name: "io.micronaut.http.client.BlockingHttpClient", alias: "BlockingHttpClient",
           members: ["close"],
           overloads: [jarOverload(name: "retrieve", parameterTypes: ["java.lang.String"])]
         )
