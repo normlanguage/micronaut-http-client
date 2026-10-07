@@ -1,10 +1,10 @@
 import micronaut.http.client.httpClientCreate
 import micronaut.http.client.BlockingHttpClient
 import micronaut.http.client.HttpClient
-import std.http.Uri
+import java.base.net.uriCreate
 
 main() {
-  HttpClient client = httpClientCreate(arg0: Uri(value: "http://127.0.0.1:18770"))!!
+  HttpClient client = httpClientCreate(arg0: uriCreate("http://127.0.0.1:18770")!!.toURL())!!
   try {
     BlockingHttpClient blocking = client.toBlocking()!!
     String response = blocking.retrieve(arg0: "/greeting")!!
@@ -18,6 +18,7 @@ main() {
 
 Module module() {
   module(dependencies: [
+    dependency(repository: "norm", name: "java.base", version: 1),
     dependency(repository: "github", name: "micronaut.http.client", version: 4),
     dependency(repository: "github", name: "micronaut.http.client.netty", version: 5)
   ])
