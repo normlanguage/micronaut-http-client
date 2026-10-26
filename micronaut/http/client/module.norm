@@ -1,7 +1,7 @@
 Module module() {
   return module(
     name: "micronaut.http.client",
-    version: 4,
+    version: 5,
     exports: ["annotation.Client", "annotation.ClientDefinitionType", "HttpClient", "BlockingHttpClient"],
     dependencies: [dependency(repository: "norm", name: "java.base", version: 1)],
     binding: jarBinding(
@@ -30,3 +30,4 @@ Module module() {
     )
   )
 }
+

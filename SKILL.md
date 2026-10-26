@@ -1,6 +1,6 @@
 # micronaut.http.client Skill
 
-Use this skill to work with Norm module `micronaut.http.client` version 4. Use only declarations listed below.
+Use this skill to work with Norm module `micronaut.http.client` version 5. Use only declarations listed below.
 
 ## `micronaut.http.client`
 
@@ -242,4 +242,5 @@ Void close()
 ```
 
 Returns: `Void`
+
 
