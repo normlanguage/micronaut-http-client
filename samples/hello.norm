@@ -19,7 +19,7 @@ main() {
 Module module() {
   module(dependencies: [
     dependency(repository: "norm", name: "java.base", version: 1),
-    dependency(repository: "github", name: "micronaut.http.client", version: 4),
-    dependency(repository: "github", name: "micronaut.http.client.netty", version: 5)
+    dependency(repository: "github", name: "micronaut.http.client", version: 6),
+    dependency(repository: "github", name: "micronaut.http.client.netty", version: 6)
   ])
 }
